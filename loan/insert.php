@@ -125,20 +125,25 @@
     $country = $_POST['country'];
     if(isset($_POST['country'])){
         $stmt->execute();
-        ?>
-        <br>
-        <br>
-        <br>
-        <div class="container"> 
-            <div class="alert alert-success" role="alert">
-                Successfull. <br>
-                <a href="index.php" class="btn btn-primary">Back to form</a>
-            </div>
-        </div>
+        //localhost
+        // $location = 'http://localhost/loan/get.php';
+        // echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
+
+        //server
+        $location = '192.168.0.213:7070/loan/get.php';
+        echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
+    }else{
+        
+        //localhost
+        // $location = 'http://localhost/loan/get.php';
+        // echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
+
+        //server
+        $location = '192.168.0.213:7070/loan/get.php';
+        echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
 
 
-        <?php
-        // print_r($_POST);
+        
     }
 
     //redirect back to index page

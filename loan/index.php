@@ -95,14 +95,38 @@
                             <option value="TRSY">Treasury</option>
                             <option value="OTHER">Others</option>
                             <option value="SAGRP">Saving Group</option>
-                            <option value="NA"></option>
-                            <option value=""></option>
+                            <option value="NA">Not Applicable</option>
+                            <option value="INVALID">Invalid value</option>
                         </select>
                     </div>
 
                     <div class="col col-md-4">
                         <label for="economic_sector_code">Economic Sector Code</label>
-                        <input type="text" class="form-control" maxlength="10" required="true" name="economic_sector_code">
+                        <select name="economic_sector_code" class="form-control">
+                            <option value="A">Agriculture, Forestry and Fishing</option>
+                            <option value="B">Mining and Quarrying</option>
+                            <option value="C">Manufacturing</option>
+                            <option value="D">Electricity, Gas, Steam and Air Conditioning Supply</option>
+                            <option value="E">Water Supply; Sewerage, Waste management and Remediation Activities</option>
+                            <option value="F">Construction</option>
+                            <option value="G">Wholesale and Retail Tradel; Repair of Motor Vehicles and Motorcycles</option>
+                            <option value="H">Transportation and Storage</option>
+                            <option value="I">Accomodation and Food Service Activities</option>
+                            <option value="J">Information and Communication</option>
+                            <option value="K">Financial and Insurance Activities</option>
+                            <option value="L">Real Estate Activities</option>
+                            <option value="M">Professional, Scientific and Technical Activities</option>
+                            <option value="N">Administrative and Support Service Activities</option>
+                            <option value="O">Public Administration and Defence; Compulsory Social Security</option>
+                            <option value="P">Education</option>
+                            <option value="Q">Human Health and Social Work Activities</option>
+                            <option value="R">Arts, Entertainment and Recreation</option>
+                            <option value="S">Other Service Activities</option>
+                            <option value="T">Activities of Households as Employers; Undifferentiated Goods - And Services-Producing Activities of Households for Own Use</option>
+                            <option value="U">Activities of Extraterritorial Organizations and Bodies</option>
+                            <option value="NA">Not Applicable</option>
+                            <option value="INVALID">Invalid Value</option>
+                        </select>
                     </div>                    
                 </div>
 
@@ -182,7 +206,9 @@
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="rejection_reason">Rejection Reason</label>
-                        <textarea name="rejection_reason" class="form-control" cols="30" rows="10"></textarea>
+                        <textarea name="rejection_reason" class="form-control" cols="30" rows="10">
+                            
+                        </textarea>
                     </div>
 
                     <div class="col col-md-4">

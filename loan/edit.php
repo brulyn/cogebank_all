@@ -29,11 +29,11 @@
 
         <div class="card">
             <div class="card-body">
-            <form action="insert.php" method="post">
+            <form action="get.php" method="post">
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="country">Country</label>
-                        <input type="text" class="form-control" maxlength="2" value=" <?php echo $_POST['country']; ?>" required="true" name="country">
+                        <input type="text" class="form-control" maxlength="3" value=" <?php echo $_POST['country']; ?>" required="true" name="country">
                     </div>
                     <div class="col col-md-4">
                         <label for="le_book">LE_Book</label>
@@ -51,7 +51,8 @@
                         <select name="customer_gender" class="form-control">
                             <option value="M">Male</option>
                             <option value="F">Female</option>
-                            <option value="N/A">Not Applicable</option>
+                            <option value="C">Corporate</option>
+                            <option value="NA">Not Applicable</option>
                         </select>
                         <p class="text-warning">This value might not be the one you had set. Before submitting edit this accordingly!!</p>
                         
@@ -72,12 +73,65 @@
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="vision_sbu">Vision SBU</label>
-                        <input type="text" class="form-control" maxlength="10" value="<?php echo $_POST['vision_sbu']; ?>" required="true" name="vision_sbu">
+                        <select name="vision_sbu" class="form-control">
+                            <option value="MCESOLE">Micro Enterprises - Solepropriertorship</option>
+                            <option value="MCECOOP">Micro Enterprises - Cooperative</option>
+                            <option value="MCECOMP">Micro Enterprises - Company</option>
+                            <option value="MCEOTHR">Micro Enterprises - Others</option>
+                            <option value="SMLSOLE">Small Enterprises - Solepropriertorship</option>
+                            <option value="SMLCOOP">Small Enterprises - Cooperative</option>
+                            <option value="SMLCOMP">Small Enterprises - Company</option>
+                            <option value="SMLOTHR">Small Enterprises - Others</option>
+                            <option value="MEDSOLE">Medium Enterprises - Solepropriertorship</option>
+                            <option value="MEDCOOP">Medium Enterprises - Cooperative</option>
+                            <option value="MEDCOMP">Medium Enterprises - Company</option>
+                            <option value="MEDOTHR">Medium Enterprises - Others</option>
+                            <option value="LRGSOLE">Large Enterprises - Solepropriertorship</option>
+                            <option value="LRGCOOP">Large Enterprises - Cooperative</option>
+                            <option value="LRGCOMP">Large Enterprises - Company</option>
+                            <option value="LRGOTHR">Large Enterprises - Others</option>
+                            <option value="RETL">Retail or Individuals</option>
+                            <option value="INST">Financial Institutions</option>
+                            <option value="PB">Private Bank</option>
+                            <option value="TRSY">Treasury</option>
+                            <option value="OTHER">Others</option>
+                            <option value="SAGRP">Saving Group</option>
+                            <option value="NA">Not Applicable</option>
+                            <option value="INVALID">Invalid value</option>
+                        </select>
+                        <p class="text-warning">This value might not be the one you had set. Before submitting edit this accordingly!!</p>
+                        
                     </div>
 
                     <div class="col col-md-4">
                         <label for="economic_sector_code">Economic Sector Code</label>
-                        <input type="text" class="form-control" maxlength="10" value="<?php echo $_POST['economic_sector_code']; ?>" required="true" name="economic_sector_code">
+                        <select name="economic_sector_code" class="form-control">
+                            <option value="A">Agriculture, Forestry and Fishing</option>
+                            <option value="B">Mining and Quarrying</option>
+                            <option value="C">Manufacturing</option>
+                            <option value="D">Electricity, Gas, Steam and Air Conditioning Supply</option>
+                            <option value="E">Water Supply; Sewerage, Waste management and Remediation Activities</option>
+                            <option value="F">Construction</option>
+                            <option value="G">Wholesale and Retail Tradel; Repair of Motor Vehicles and Motorcycles</option>
+                            <option value="H">Transportation and Storage</option>
+                            <option value="I">Accomodation and Food Service Activities</option>
+                            <option value="J">Information and Communication</option>
+                            <option value="K">Financial and Insurance Activities</option>
+                            <option value="L">Real Estate Activities</option>
+                            <option value="M">Professional, Scientific and Technical Activities</option>
+                            <option value="N">Administrative and Support Service Activities</option>
+                            <option value="O">Public Administration and Defence; Compulsory Social Security</option>
+                            <option value="P">Education</option>
+                            <option value="Q">Human Health and Social Work Activities</option>
+                            <option value="R">Arts, Entertainment and Recreation</option>
+                            <option value="S">Other Service Activities</option>
+                            <option value="T">Activities of Households as Employers; Undifferentiated Goods - And Services-Producing Activities of Households for Own Use</option>
+                            <option value="U">Activities of Extraterritorial Organizations and Bodies</option>
+                            <option value="NA">Not Applicable</option>
+                            <option value="INVALID">Invalid Value</option>
+                        </select>
+                        <p class="text-warning">This value might not be the one you had set. Before submitting edit this accordingly!!</p>
+                        
                     </div>                    
                 </div>
 
@@ -157,7 +211,9 @@
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="rejection_reason">Rejection Reason</label>
-                        <textarea name="rejection_reason" value="<?php echo $_POST['rejection_reason']; ?>" class="form-control" cols="30" rows="10"></textarea>
+                        <textarea name="rejection_reason" class="form-control" cols="30" rows="10">
+                            <?php echo $_POST['rejection_reason']; ?>
+                        </textarea>
                     </div>
 
                     <div class="col col-md-4">
@@ -170,11 +226,13 @@
                     <div class="col col-md-4">
                         <label for="feed_status">Feed Status</label>
                         <input type="text" class="form-control" value="<?php echo $_POST['feed_status']; ?>" maxlength="2" required="true" name="feed_status">
+                        <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                     </div>                   
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary" name="edit">Submit</button>
+                    <a href="get.php" class="btn btn-info">Go back</a>
                 </div>
                 
             </form>
