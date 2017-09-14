@@ -1,0 +1,25 @@
+--bouncedcheques table creation
+CREATE TABLE clearinguser.bouncedcheques(
+    account_id varchar(40),
+    cheque_account_type varchar(10),
+    surname varchar(40),
+    forename1 varchar(40),
+    forename2 varchar(40),
+    forename3 varchar(40),
+    national_id varchar(40),
+    passport_number varchar(40),
+    nationality varchar(40),
+    date_of_birth varchar(20),
+    place_of_birth varchar(20),
+    postal_address1 varchar(40),
+    postal_address2 varchar(40),
+    town varchar(40),
+    country varchar(40),
+    cheque_number varchar(40),
+    presentation_date varchar(40),
+    bounce_date varchar(40),
+    currency varchar(10),
+    cheque_amount int,
+    bounce_reason varchar(40),
+    payee varchar(40)
+);
