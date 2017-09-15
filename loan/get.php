@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+    <link rel="icon" href="images/logo.png" type="image/x-icon" />
      <!-- Datatables css -->
      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.15/b-1.4.0/datatables.min.css"/>
     <!-- Latest compiled and minified CSS -->
@@ -56,15 +56,16 @@
 
         if(!isset($_POST['edit'])){
             get_show();
-        }else if(isset($_POST['delete'])){
+        }else if(!isset($_POST['delete'])){
+            insert();
+            get_show();   
+        }
+
+        if(isset($_POST['delete'])){
             delete();
             $location = $_SERVER['PHP_SELF'];
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
-        }else{
-            insert();
-            get_show();
         }
-
         
 
         function get_show(){
@@ -144,10 +145,11 @@
                             echo '<td>'.$row['FEED_DATE'].'</td>';
                             echo '<td>'.$row['FEED_STATUS'].'</td>';
                             echo '<td>
-                                <row>
+                                <div>
                                     <div class="col-md-3">
                                         <form action="edit.php" method="post">
-                                            <button class="btn btn-primary btn-xs">Edit</button>
+                                            <button class="btn btn-primary btn-xs">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
                                             <input type="hidden" name="id" value='.$row['ID'].'>
                                             <input type="hidden" name="country" value='.$row['COUNTRY'].'>
                                             <input type="hidden" name="le_book" value='.$row['LE_BOOK'].'>
@@ -176,16 +178,46 @@
                                     </div>
     
                                     <div class="col-md-3">
-                                        <form action="get.php" method="post">
-                                            <button class="btn btn-danger btn-xs" name="delete">Delete</button>
-                                            <input type="hidden" name="id" value='.$row['ID'].'>
-                                        </form>
+                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#'.$row['ID'].'">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true">
+                                        </button>
+                                        
+                                        <div id="'.$row['ID'].'" class="modal fade" role="dialog">
+                                            <div class="modal-dialog modal-sm">
+                                        
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete entry with ID number '.$row['ID'].'?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="row">
+                                                            <div class="col-md-6"></div>
+
+                                                            <div class="col-md-3">
+                                                                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Cancel</button>
+                                                            </div>
+
+                                                            <div class="col-md-3">
+                                                                <form action="get.php" method="post">
+                                                                    <button type="submit" class="btn btn-danger btn-sm" name="delete">Delete</button>
+                                                                    <input type="hidden" value="'.$row['ID'].'" name="id">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
                                     </div>
-    
-                                </row>
+                                </div>
                             
                             </td>';
-                            echo '</td>';
+                            echo '</tr>';
+                        
                             
                     }
     
@@ -284,8 +316,7 @@
             
         }
 
-        function delete(){
-            
+        function delete(){            
             $pdo = new PDO('oci:dbname=192.168.0.20:1521/cgbk', 'prod', 'prod');  
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $pdo->prepare("DELETE FROM clearinguser.loanapply WHERE id = :id ");
@@ -293,6 +324,9 @@
             $id = $_POST['id'];   
             $stmt->execute();
             
+        }
+
+        function confirm(){
         }
 
         

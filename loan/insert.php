@@ -14,13 +14,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <title>Switch Info</title>
+    <title>Insert</title>
 </head>
 <body>
 <div class="container">
 <?php
     //DB Connection
-    require_once('./dbconnect.php');
+    require_once('dbconnect.php');
     // $pdo = new PDO('oci:dbname=192.168.0.20:1521/cgbk', 'prod', 'prod');  
     // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Insert Data
@@ -118,7 +118,7 @@
     $total_npl_amount_lcy = $_POST['total_npl_amount_lcy'];
     $total_writeoff_loan = $_POST['total_writeoff_loan'];
     $total_writeoff_amount_lcy = $_POST['total_writeoff_amount_lcy'];
-    $rejection_reason = $_POST['rejection_reason'];
+    $rejection_reason = nl2br($_POST['rejection_reason']);
     $feed_date = $_POST['feed_date'];
     $feed_status = $_POST['feed_status'];
 
@@ -126,24 +126,22 @@
     if(isset($_POST['country'])){
         $stmt->execute();
         //localhost
-        // $location = 'http://localhost/loan/get.php';
-        // echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
-
+        $location = 'http://localhost/loan/get.php';
+        
         //server
-        $location = '192.168.0.213:7070/loan/get.php';
+        // $location = 'http://192.168.0.213:7070/loan/get.php';
+
         echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
     }else{
         
         //localhost
-        // $location = 'http://localhost/loan/get.php';
-        // echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
-
-        //server
-        $location = '192.168.0.213:7070/loan/get.php';
-        echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
-
-
+        $location = 'http://localhost/loan/get.php';
         
+        //server
+        // $location = 'http://192.168.0.213:7070/loan/get.php';
+
+
+        echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';        
     }
 
     //redirect back to index page

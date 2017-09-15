@@ -13,7 +13,7 @@
             <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php">
-                <img src="./images/logo.png" alt="Logo" style="width:25px;height:25px;border:0;">
+            <img src="./images/icon.png" alt="Logo" style="width:120px;height:30px;border:0;">
             </a>
             
         </div>
@@ -28,10 +28,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View/Edit <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <!-- localhost -->
-                        <!-- <li><a href="http://localhost/loan/get.php">Loan Apply</a></li> -->
+                        <li><a href="http://localhost/loan/get.php">Loan Apply</a></li>
 
                         <!-- Server -->
-                        <li><a href="http://192.168.0.213:7070/loan/get.php">Loan Apply</a></li>
+                        <!-- <li><a href="http://192.168.0.213:7070/loan/get.php">Loan Apply</a></li> -->
                     </ul>
                 </li>
 
@@ -39,10 +39,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Entry <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <!-- localhost -->
-                        <!-- <li><a href="http://localhost/loan/">Loan Apply</a></li> -->
+                        <li><a href="http://localhost/loan/">Loan Apply</a></li>
 
                         <!-- Server -->
-                        <li><a href="http://192.168.0.213:7070/loan/">Loan Apply</a></li>
+                        <!-- <li><a href="http://192.168.0.213:7070/loan/">Loan Apply</a></li> -->
                     </ul>
                 </li>
             </ul>

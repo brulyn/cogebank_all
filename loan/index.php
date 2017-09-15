@@ -33,11 +33,11 @@
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="country">Country</label>
-                        <input type="text" class="form-control" maxlength="2" required="true" name="country">
+                        <input type="text" class="form-control" maxlength="2" value="RW" required="true" name="country">
                     </div>
                     <div class="col col-md-4">
                         <label for="le_book">LE_Book</label>
-                        <input type="text" class="form-control" maxlength="3" required="true" name="le_book">
+                        <input type="text" class="form-control" maxlength="3" value="030" required="true" name="le_book">
                     </div>
                 </div>  
 
@@ -61,7 +61,32 @@
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="vision_ouc">Vision OUC</label>
-                        <input type="text" class="form-control" maxlength="10" required="true" name="vision_ouc">                        
+                        <select name="vision_ouc" class="form-control">
+                            <option value="00001">Agence Central</option>
+                            <option value="00002">Agence Rubangura</option>
+                            <option value="00003">Agence Nyabugogo</option>
+                            <option value="00004">Agence Remera</option>
+                            <option value="00005">Agence Nyarutarama</option>
+                            <option value="00006">Agence Kicukiro</option>
+                            <option value="00007">Agence Rwamagana</option>
+                            <option value="00008">Agence Kabarondo</option>
+                            <option value="00009">Agence Musanze</option>
+                            <option value="00010">Agence Rubavu</option>
+                            <option value="00011">Agence Muhanga</option>
+                            <option value="00012">Agence Huye</option>
+                            <option value="00013">Agence Nyamagabe</option>
+                            <option value="00014">Agence Kamembe</option>
+                            <option value="00015">Agence Tyazo</option>
+                            <option value="00016">Corporate</option>
+                            <option value="00018">Prestige</option>
+                            <option value="00019">Agence Nyagatare</option>
+                            <option value="00020">Agence Gisozi</option>
+                            <option value="00021">Agence Gicumbi</option>
+                            <option value="00022">Agence CHIC</option>
+                            <option value="00023">Agence Karongi</option>
+                            <option value="00024">Agence Ruhango</option>
+                            <option value="00100">Siege</option>
+                        </select>                        
                     </div>
                     <div class="col col-md-4">
                         <label for="loan_utilization_location">Loan Utilization Location</label>
@@ -206,7 +231,7 @@
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="rejection_reason">Rejection Reason</label>
-                        <textarea name="rejection_reason" class="form-control" cols="30" rows="10">
+                        <textarea name="rejection_reason" class="form-control" rows="4" cols="100">
                             
                         </textarea>
                     </div>
