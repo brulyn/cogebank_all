@@ -8,24 +8,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="images/logo.png" type="image/x-icon" />
-     <!-- Datatables css -->
-     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.15/b-1.4.0/datatables.min.css"/>
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- jquery -->
-    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-    <!-- Datatabled js -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
     
+    <!-- Datatables css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.bootstrap.min.css">
+
+    <!-- Bootstrap Simplex Theme -->
+    <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
+    
+    
+    <!-- jquery -->
+    <script   src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     
+    <!-- Datatabled js -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.colVis.min.js"></script>
     
     <script>
         $(document).ready(function() {
-            $('#example').DataTable();
+            var table = $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [ 'excel', 'pdf', 'colvis' ]
+            });
+
+            var column_8 = table.column( 8 );
+            column_8.visible(false);
+
+            var column_9 = table.column( 9 );
+            column_9.visible(false);
+            
+            var column_10 = table.column( 10 );
+            column_10.visible(false);
+
+            var column_11 = table.column( 11 );
+            column_11.visible(false);
+
+            var column_12 = table.column( 12 );
+            column_12.visible(false);
+
+            var column_13 = table.column( 13 );
+            column_13.visible(false);
+
+            var column_14 = table.column( 14 );
+            column_14.visible(false);
+            
+            var column_15 = table.column( 15 );
+            column_15.visible(false);
+
+            var column_16 = table.column( 16 );
+            column_16.visible(false);
+
+            var column_17 = table.column( 17 );
+            column_17.visible(false);
+
+            var column_18 = table.column( 18 );
+            column_18.visible(false);
+
+            var column_19 = table.column( 19 );
+            column_19.visible(false);
+
         } );
     </script>
+
+    <style>
+        #example {
+            
+            width: 100%;
+        }
+    </style>
     
     <title>Loan Apply</title>
 </head>
@@ -101,17 +161,34 @@
             $feed_status = array();
             if($stmt->execute()){
                 ?>
-                <table id="example" class="table display">
+                <div class="table-responsive">
+                <table id="example" class="table display table-condensed">
                     <thead>
                         <tr>
                             <th>Country</th>
                             <th>Le_Book</th>
                             <th>YearMonth</th>
                             <th>Customer Gender</th>
+                            <th>Branch</th>
+                            <th>Loan Utlization Loc</th>
+                            <th>Vision SBU</th>
+                            <th>Economic Sector</th>
+                            <th>Tot Applied Loan</th>
+                            <th>Tot Applied Amount (LCY)</th>
+                            <th>Tot Approved Loan</th>
+                            <th>Tot Approved Amount (LCY)</th>
+                            <th>Tot Rejected Loan</th>
+                            <th>Tot Rejected Amount (LCY)</th>
+                            <th>Tot Outstanding Loan</th>
+                            <th>Tot Outstanding Amount (LCY)</th>
+                            <th>Tot NPL Loan</th>
+                            <th>Tot NPL Amount (LCY)</th>
+                            <th>Tot Writeoff Loan</th>
+                            <th>Tot Writeoff Amount (LCY)</th>
                             <th>Rejection Reason</th>
                             <th>Feed Date</th>
                             <th>Feed Status</th>
-                            <th>Action</th>
+                            <th width="50">Action</th>
                         </tr>
                     </thead>
                     
@@ -137,10 +214,26 @@
                         // $feed_status[] = $row['FEED_STATUS'];
                         
                             echo '<tr>';
-                            echo '<td>'.$row['COUNTRY'].'</td>';
-                            echo '<td>'.$row['LE_BOOK'].'</td>';
-                            echo '<td>'.$row['YEAR_MONTH'].'</td>';
-                            echo '<td>'.$row['CUSTOMER_GENDER'].'</td>';
+                            echo '<td width="auto">'.$row['COUNTRY'].'</td>';
+                            echo '<td width="auto">'.$row['LE_BOOK'].'</td>';
+                            echo '<td width="auto">'.$row['YEAR_MONTH'].'</td>';
+                            echo '<td width="auto">'.$row['CUSTOMER_GENDER'].'</td>';
+                            echo '<td width="auto">'.$row['VISION_OUC'].'</td>';
+                            echo '<td width="auto">'.$row['LOAN_UTILIZATION_LOCATION'].'</td>';
+                            echo '<td width="auto">'.$row['VISION_SBU'].'</td>';
+                            echo '<td width="auto">'.$row['ECONOMIC_SECTOR_CODE'].'</td>';
+                            echo '<td width="auto">'.$row['TOTAL_APPLIED_LOAN'].'</td>';
+                            echo '<td width="auto">'.$row['TOTAL_APPLIED_AMOUNT_LCY'].'</td>';
+                            echo '<td width="auto">'.$row['TOTAL_APPROVED_LOAN'].'</td>';
+                            echo '<td>'.$row['TOTAL_APPROVED_AMOUNT_LCY'].'</td>';
+                            echo '<td>'.$row['TOTAL_REJECTED_LOAN'].'</td>';
+                            echo '<td>'.$row['TOTAL_REJECTED_AMOUNT_LCY'].'</td>';
+                            echo '<td>'.$row['TOTAL_OUTSTANDING_LOAN'].'</td>';
+                            echo '<td>'.$row['TOTAL_OUTSTANDING_AMOUNT_LCY'].'</td>';
+                            echo '<td>'.$row['TOTAL_NPL_LOAN'].'</td>';
+                            echo '<td>'.$row['TOTAL_NPL_AMOUNT_LCY'].'</td>';
+                            echo '<td>'.$row['TOTAL_WRITEOFF_LOAN'].'</td>';
+                            echo '<td>'.$row['TOTAL_WRITEOFF_AMOUNT_LCY'].'</td>';
                             echo '<td>'.$row['REJECTION_REASON'].'</td>';
                             echo '<td>'.$row['FEED_DATE'].'</td>';
                             echo '<td>'.$row['FEED_STATUS'].'</td>';
@@ -171,7 +264,7 @@
                                             <input type="hidden" name="total_npl_amount_lcy" value='.$row['TOTAL_NPL_AMOUNT_LCY'].'>
                                             <input type="hidden" name="total_writeoff_loan" value='.$row['TOTAL_WRITEOFF_LOAN'].'>
                                             <input type="hidden" name="total_writeoff_amount_lcy" value='.$row['TOTAL_WRITEOFF_AMOUNT_LCY'].'>
-                                            <input type="hidden" name="rejection_reason" value='.$row['REJECTION_REASON'].'>
+                                            <input type="hidden" name="rejection_reason" value="'.$row['REJECTION_REASON'].'">
                                             <input type="hidden" name="feed_date" value='.$row['FEED_DATE'].'>
                                             <input type="hidden" name="feed_status" value='.$row['FEED_STATUS'].'>
                                         </form>
@@ -225,6 +318,7 @@
                 ?>
                      </tbody>
                 </table>
+                </div>
     
                 <?php
             }

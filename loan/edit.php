@@ -11,12 +11,15 @@
     <!-- Latest compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- moment -->
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <title>Loan Apply</title>
 </head>
 <body>
@@ -236,14 +239,28 @@
                 <div class="row form-group">
                     <div class="col col-md-4">
                         <label for="rejection_reason">Rejection Reason</label>
-                        <textarea name="rejection_reason" class="form-control" rows="4" cols="100">
-                            <?php echo nl2br($_POST['rejection_reason']); ?>
-                        </textarea>
+                        <textarea name="rejection_reason" class="form-control" rows="10" cols="30"><?php echo $_POST['rejection_reason'];?></textarea>
                     </div>
 
                     <div class="col col-md-4">
                         <label for="feed_date">Feed Date</label>
-                        <input type="date" class="form-control" value="<?php echo $_POST['feed_date']; ?>" required="true" name="feed_date">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' name='feed_date' value="<?php echo $_POST['feed_date']; ?>" required="true" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                            
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#datetimepicker1').datetimepicker({
+                                    format: 'DD-MM-YYYY'
+                                });
+                            });
+                        </script>
+
                     </div>                   
                 </div>
                 <div class="row form-group">

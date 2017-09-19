@@ -23,11 +23,11 @@
             
             <ul class="nav navbar-nav navbar-right">
 
-                <!-- Localhost -->
+                <!-- http://localhost -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View/Edit <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <!-- localhost -->
+                        <!-- http://localhost -->
                         <li><a href="http://localhost/loan/get.php">Loan Apply</a></li>
 
                         <!-- Server -->
@@ -38,7 +38,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Entry <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <!-- localhost -->
+                        <!-- http://localhost -->
                         <li><a href="http://localhost/loan/">Loan Apply</a></li>
 
                         <!-- Server -->

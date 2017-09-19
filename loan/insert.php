@@ -118,14 +118,14 @@
     $total_npl_amount_lcy = $_POST['total_npl_amount_lcy'];
     $total_writeoff_loan = $_POST['total_writeoff_loan'];
     $total_writeoff_amount_lcy = $_POST['total_writeoff_amount_lcy'];
-    $rejection_reason = nl2br($_POST['rejection_reason']);
+    $rejection_reason = $_POST['rejection_reason'];
     $feed_date = $_POST['feed_date'];
     $feed_status = $_POST['feed_status'];
 
     $country = $_POST['country'];
     if(isset($_POST['country'])){
         $stmt->execute();
-        //localhost
+        //http://172.26.104.198
         $location = 'http://localhost/loan/get.php';
         
         //server
@@ -134,7 +134,7 @@
         echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
     }else{
         
-        //localhost
+        //http://172.26.104.198
         $location = 'http://localhost/loan/get.php';
         
         //server
